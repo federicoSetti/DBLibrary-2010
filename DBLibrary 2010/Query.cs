@@ -50,8 +50,17 @@ namespace DBLibrary
           {
               this.initializeQuery(this.cmd, "INSERT INTO students(alias,name,surname,img_url,description) VALUES('elon-musk','elon','musk','gfgf','ha i big money')");
           }
-            
-        }
+              
+          public void Update()
+          {
+            this.initializeQuery(this.cmd, "UPDATE students SET name = 'Elon' WHERE alias = 'elon-musk'; ");
+          }
+
+          public void Delete()
+          {
+            this.initializeQuery(this.cmd, "DELETE FROM  students  WHERE alias = 'elon-musk'; ");
+          }
+    }
 
    
     }

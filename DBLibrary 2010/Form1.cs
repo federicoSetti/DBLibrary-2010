@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace DBLibrary
 {
@@ -23,9 +24,9 @@ namespace DBLibrary
         {
 
             con = new ConnectionHandler();
-            
-            Query ins = new Query(con);
-            ins.insertInto();
+
+            Query del= new Query(con);
+            del.Delete();
 
             Query quer = new Query(con);
 
