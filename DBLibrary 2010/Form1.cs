@@ -13,11 +13,13 @@ namespace DBLibrary
 {
     public partial class Form1 : Form
     {
-        ConnectionHandler con;
+        ConnectionHandler con = new ConnectionHandler();
+
 
         public Form1()
         {
             InitializeComponent();
+            FillTableComboBox();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -25,18 +27,40 @@ namespace DBLibrary
 
             con = new ConnectionHandler();
 
-            Query del= new Query(con);
-            del.Delete();
 
             Query quer = new Query(con);
 
-            List<string> lista = quer.Select();
+            List<string> lista = quer.getColumnNames("students");
 
-            for (int i = 0; i < lista.Count; i++)
-            {
-                listBox1.Items.Add(lista[i]);
-            }
+
                     
+        }
+        
+        //riempie la combobox coi nomi delle tabelle del database
+        public void FillTableComboBox()
+        {
+            Query qu = new Query(con);
+            List<string> Tables = qu.getTableNames();
+
+            for (int i = 0; i < Tables.Count; i++)
+            {
+                TableComboBox.Items.Add(Tables[i]);
+            }
+        }
+
+        //quando viene selezionata una nuova tabella,cambia i nomi delle colonne nella checkedlistbox
+        private void TableComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ColumnsList.Items.Clear();
+
+            Query qu = new Query(con);
+            int index = TableComboBox.SelectedIndex;
+            List<string> Columns = qu.getColumnNames(TableComboBox.Items[index].ToString());
+
+            for (int i = 0; i < Columns.Count; i++)
+            {
+                ColumnsList.Items.Add(Columns[i]);
+            }
         }
     }
 }

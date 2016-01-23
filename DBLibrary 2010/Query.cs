@@ -60,6 +60,40 @@ namespace DBLibrary
           {
             this.initializeQuery(this.cmd, "DELETE FROM  students  WHERE alias = 'elon-musk'; ");
           }
+
+          public List<string> getColumnNames(string tablename)
+        {
+            this.initializeQuery(this.cmd, " SHOW COLUMNS FROM "+tablename +";"); 
+
+            List <string> lista = new List<string>();
+
+            MySqlDataReader dataReader = this.cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                lista.Add(dataReader[0].ToString());
+            }
+            dataReader.Close();
+
+            return lista;
+
+        }
+
+        public List<string> getTableNames()
+        {
+            this.initializeQuery(this.cmd, "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA = 'dbannuario';");
+
+            List<string> lista = new List<string>();
+
+            MySqlDataReader dataReader = this.cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                lista.Add(dataReader[0].ToString());
+            }
+            dataReader.Close();
+
+            return lista;
+
+        }
     }
 
    

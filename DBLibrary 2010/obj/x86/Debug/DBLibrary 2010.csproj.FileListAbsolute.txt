@@ -2,7 +2,6 @@ C:\Users\Alle\Desktop\DBLibrary-2010\DBLibrary 2010\bin\Debug\DBLibrary 2010.exe
 C:\Users\Alle\Desktop\DBLibrary-2010\DBLibrary 2010\bin\Debug\DBLibrary 2010.exe
 C:\Users\Alle\Desktop\DBLibrary-2010\DBLibrary 2010\bin\Debug\DBLibrary 2010.pdb
 C:\Users\Alle\Desktop\DBLibrary-2010\DBLibrary 2010\bin\Debug\MySql.Data.dll
-C:\Users\Alle\Desktop\DBLibrary-2010\DBLibrary 2010\obj\x86\Debug\DBLibrary 2010.csprojResolveAssemblyReference.cache
 C:\Users\Alle\Desktop\DBLibrary-2010\DBLibrary 2010\obj\x86\Debug\DBLibrary.Form1.resources
 C:\Users\Alle\Desktop\DBLibrary-2010\DBLibrary 2010\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\Alle\Desktop\DBLibrary-2010\DBLibrary 2010\obj\x86\Debug\DBLibrary 2010.csproj.GenerateResource.Cache
