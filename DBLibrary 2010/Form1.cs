@@ -27,13 +27,10 @@ namespace DBLibrary
 
             con = new ConnectionHandler();
 
-
             Query quer = new Query(con);
+            
+            Console.WriteLine(concatCheckedItems());
 
-            List<string> lista = quer.getColumnNames("students");
-
-
-                    
         }
         
         //riempie la combobox coi nomi delle tabelle del database
@@ -61,6 +58,21 @@ namespace DBLibrary
             {
                 ColumnsList.Items.Add(Columns[i]);
             }
+        }
+
+        private string concatCheckedItems()
+        {
+            string values = "";
+
+            for (int i = 0; i < ColumnsList.CheckedItems.Count; i++)
+            {
+                string comma="";
+                if(i != ColumnsList.CheckedItems.Count - 1) { comma = ","; }
+
+                values +=ColumnsList.CheckedItems[i].ToString()+ comma;
+            }
+
+           return values;
         }
     }
 }

@@ -30,9 +30,9 @@ namespace DBLibrary
         }
 
         //ritorna i dati selezionati
-          public List<string> Select()
+          public List<string> Select(string elements)
             {
-                this.initializeQuery(this.cmd,"SELECT name FROM students");
+                this.initializeQuery(this.cmd,"SELECT "+elements+" FROM students");
         
                 List<string> lista = new List<string>();
 
@@ -78,22 +78,22 @@ namespace DBLibrary
 
         }
 
-        public List<string> getTableNames()
-        {
-            this.initializeQuery(this.cmd, "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA = 'dbannuario';");
-
-            List<string> lista = new List<string>();
-
-            MySqlDataReader dataReader = this.cmd.ExecuteReader();
-            while (dataReader.Read())
+          public List<string> getTableNames()
             {
-                lista.Add(dataReader[0].ToString());
+                this.initializeQuery(this.cmd, "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA = 'dbannuario';");
+
+                List<string> lista = new List<string>();
+
+                MySqlDataReader dataReader = this.cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    lista.Add(dataReader[0].ToString());
+                }
+                dataReader.Close();
+
+                return lista;
+
             }
-            dataReader.Close();
-
-            return lista;
-
-        }
     }
 
    
