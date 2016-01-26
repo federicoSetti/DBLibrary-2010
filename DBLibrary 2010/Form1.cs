@@ -15,7 +15,6 @@ namespace DBLibrary
     {
         ConnectionHandler con = new ConnectionHandler();
 
-
         public Form1()
         {
             InitializeComponent();
@@ -92,5 +91,16 @@ namespace DBLibrary
             }
             return lista;
         }
+
+        private void FillDataGridView(List<List<string>> list)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {   
+                for (int j = 0; j < list[i].Count; j++)
+                {
+                  //  DisplayGrid.Columns.Add(list[i] as DataGridViewColumn); 
+                }
+            }
+        } 
     }
 }

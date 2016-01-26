@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DisplayGrid = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.ColumnsList = new System.Windows.Forms.CheckedListBox();
             this.TableComboBox = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DisplayGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -46,13 +46,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dataGridView1
+            // DisplayGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 1;
+            this.DisplayGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DisplayGrid.Location = new System.Drawing.Point(12, 12);
+            this.DisplayGrid.Name = "DisplayGrid";
+            this.DisplayGrid.Size = new System.Drawing.Size(240, 150);
+            this.DisplayGrid.TabIndex = 1;
             // 
             // label2
             // 
@@ -90,11 +90,11 @@
             this.Controls.Add(this.TableComboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ColumnsList);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DisplayGrid);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DisplayGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,7 +103,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DisplayGrid;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox ColumnsList;
         private System.Windows.Forms.ComboBox TableComboBox;
