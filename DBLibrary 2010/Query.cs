@@ -30,9 +30,9 @@ namespace DBLibrary
         }
 
         //ritorna i dati selezionati
-          public List<List<string>> Select(string elements,List<string> checkeditems)
+          public List<List<string>> Select(string  table,string elements,List<string> checkeditems)
             {
-                this.initializeQuery(this.cmd,"SELECT "+elements+" FROM students");
+                this.initializeQuery(this.cmd,"SELECT "+elements+" FROM "+table);
         
                 List<List<string>> lista = new List<List<string>>();
                     

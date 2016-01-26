@@ -24,16 +24,15 @@ namespace DBLibrary
         private void button1_Click(object sender, EventArgs e)
         {
 
+           DisplayGrid.Columns.Clear();
+
            con = new ConnectionHandler();
 
            Query quer = new Query(con);
 
-           List<List<string>>  lis = quer.Select(concatCheckedItems(), getCheckedItems());
+           List<List<string>>  lis = quer.Select(TableComboBox.SelectedItem.ToString(),concatCheckedItems(), getCheckedItems());
 
-            for (int i = 0; i < lis[1].Count; i++)
-            {
-                Console.WriteLine(lis[1][i]);
-            }
+            FillDataGridView(lis);
         }
         
         //riempie la combobox coi nomi delle tabelle del database
@@ -92,14 +91,25 @@ namespace DBLibrary
             return lista;
         }
 
+        //fa displaiare i risultati nella datagridview
         private void FillDataGridView(List<List<string>> list)
         {
-            for (int i = 0; i < list.Count; i++)
-            {   
-                for (int j = 0; j < list[i].Count; j++)
-                {
-                  //  DisplayGrid.Columns.Add(list[i] as DataGridViewColumn); 
-                }
+
+            DisplayGrid.ColumnCount = list.Count;
+
+            for (int i = 0; i < ColumnsList.CheckedItems.Count; i++)
+            {
+                DisplayGrid.Columns[i].Name = ColumnsList.CheckedItems[i].ToString();
+            }
+
+            for (int i = 0; i < list[0].Count; i++)
+            {
+                string[] col = new string[list[0].Count];
+                    for (int j = 0; j < ColumnsList.CheckedItems.Count; j++)
+                    {
+                        col[j] = list[j][i];
+                    }
+                DisplayGrid.Rows.Add(col);
             }
         } 
     }
