@@ -25,12 +25,16 @@ namespace DBLibrary
         private void button1_Click(object sender, EventArgs e)
         {
 
-            con = new ConnectionHandler();
+           con = new ConnectionHandler();
 
-            Query quer = new Query(con);
-            
-            Console.WriteLine(concatCheckedItems());
+           Query quer = new Query(con);
 
+           List<List<string>>  lis = quer.Select(concatCheckedItems(), getCheckedItems());
+
+            for (int i = 0; i < lis[1].Count; i++)
+            {
+                Console.WriteLine(lis[1][i]);
+            }
         }
         
         //riempie la combobox coi nomi delle tabelle del database
@@ -60,6 +64,7 @@ namespace DBLibrary
             }
         }
 
+        //converte la lista degli elementi selezionati in una stringa leggibile dalla query
         private string concatCheckedItems()
         {
             string values = "";
@@ -73,6 +78,19 @@ namespace DBLibrary
             }
 
            return values;
+        }
+
+        //converte la lista degli elementi selezionati in una lista di stringhe
+        private List<string> getCheckedItems()
+        {
+            List<string> lista = new List<string>();
+
+            for (int i = 0; i < ColumnsList.CheckedItems.Count; i++)
+            {
+
+                lista.Add(ColumnsList.CheckedItems[i].ToString());
+            }
+            return lista;
         }
     }
 }

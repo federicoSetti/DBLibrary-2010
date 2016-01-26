@@ -30,19 +30,29 @@ namespace DBLibrary
         }
 
         //ritorna i dati selezionati
-          public List<string> Select(string elements)
+          public List<List<string>> Select(string elements,List<string> checkeditems)
             {
                 this.initializeQuery(this.cmd,"SELECT "+elements+" FROM students");
         
-                List<string> lista = new List<string>();
+                List<List<string>> lista = new List<List<string>>();
+                    
 
-                MySqlDataReader dataReader = cmd.ExecuteReader();
+                for (int i = 0; i <checkeditems.Count; i++)
+                {
+                   lista.Add(new List<string>());
+                }
+
+               MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
-                  lista.Add(dataReader["name"].ToString());
+                        for (int i = 0; i < checkeditems.Count; i++)
+                        {
+                           lista[i].Add(dataReader[checkeditems[i]].ToString());              
+                        }
+                        lista.Add(checkeditems);
+
                 }
                 dataReader.Close();
-
                 return lista;
 
             }
