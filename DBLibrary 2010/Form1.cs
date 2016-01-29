@@ -30,9 +30,11 @@ namespace DBLibrary
 
            Query quer = new Query(con);
 
-           List<List<string>>  lis = quer.Select(TableComboBox.SelectedItem.ToString(),concatCheckedItems(), getCheckedItems());
-
-            FillDataGridView(lis);
+            if (ColumnsList.CheckedItems.Count > 0) {
+                List<List<string>> lis = quer.Select(TableComboBox.SelectedItem.ToString(), concatCheckedItems(), getCheckedItems());
+                FillDataGridView(lis);
+            }
+            else { MessageBox.Show("Seleziona degli elementi stronzo"); }
         }
         
         //riempie la combobox coi nomi delle tabelle del database
@@ -112,5 +114,6 @@ namespace DBLibrary
                 DisplayGrid.Rows.Add(col);
             }
         } 
+
     }
 }
