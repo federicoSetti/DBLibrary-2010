@@ -18,3 +18,4 @@ C:\Users\4f10\Desktop\DBLibrary-2010\DBLibrary 2010\obj\x86\Debug\DBLibrary 2010
 C:\Users\4f10\Desktop\DBLibrary-2010\DBLibrary 2010\obj\x86\Debug\DBLibrary.Form1.resources
 C:\Users\4f10\Desktop\DBLibrary-2010\DBLibrary 2010\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\4f10\Desktop\DBLibrary-2010\DBLibrary 2010\obj\x86\Debug\DBLibrary 2010.csproj.GenerateResource.Cache
+C:\Users\4f10\Desktop\DBLibrary-2010\DBLibrary 2010\obj\x86\Debug\DBLibrary.HomeForm.resources
