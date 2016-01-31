@@ -21,7 +21,7 @@ namespace DBLibrary
             FillTableComboBox();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+         private  void button1_Click(object sender, EventArgs e)
         {
 
            DisplayGrid.Columns.Clear();
@@ -50,7 +50,7 @@ namespace DBLibrary
         }
 
         //quando viene selezionata una nuova tabella,cambia i nomi delle colonne nella checkedlistbox
-        private void TableComboBox_SelectedIndexChanged(object sender, EventArgs e)
+       virtual protected void TableComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ColumnsList.Items.Clear();
 
@@ -65,7 +65,7 @@ namespace DBLibrary
         }
 
         //converte la lista degli elementi selezionati in una stringa leggibile dalla query
-        private string concatCheckedItems()
+        protected virtual string concatCheckedItems()
         {
             string values = "";
 
@@ -106,7 +106,7 @@ namespace DBLibrary
 
             for (int i = 0; i < list[0].Count; i++)
             {
-                string[] col = new string[list[0].Count];
+                string[] col = new string[list[0].Count+1];
                     for (int j = 0; j < ColumnsList.CheckedItems.Count; j++)
                     {
                         col[j] = list[j][i];

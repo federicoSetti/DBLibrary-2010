@@ -9,11 +9,10 @@ namespace DBLibrary
 {
     class Query
     {
+         ConnectionHandler con;
+         MySqlCommand cmd;
 
-        ConnectionHandler con;
-        MySqlCommand cmd;
-
-        public Query( ConnectionHandler con)
+         public Query( ConnectionHandler con)
         {
             this.con = con;
             this.con.openConnection();
@@ -21,15 +20,15 @@ namespace DBLibrary
             this.cmd = new MySqlCommand();
         }
 
-        //creo la procedura getStudents 
-        public void initializeQuery(MySqlCommand cmd,string request)
+          //creo la procedura getStudents 
+          public void initializeQuery(MySqlCommand cmd,string request)
         {   
             cmd.Connection = this.con.connection;
             cmd.CommandText = request;
             cmd.ExecuteNonQuery();
         }
 
-        //ritorna i dati selezionati
+          //ritorna i dati selezionati
           public List<List<string>> Select(string  table,string elements,List<string> checkeditems)
             {
                 this.initializeQuery(this.cmd,"SELECT "+elements+" FROM "+table);
@@ -56,9 +55,10 @@ namespace DBLibrary
                 return lista;
 
             }
-          public void insertInto()
+
+          public void insertInto(string table,string columns,string values)
           {
-              this.initializeQuery(this.cmd, "INSERT INTO students(alias,name,surname,img_url,description) VALUES('elon-musk','elon','musk','gfgf','ha i big money')");
+              this.initializeQuery(this.cmd, "INSERT INTO "+table+"("+columns+") VALUES("+values+")");
           }
               
           public void Update()

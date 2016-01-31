@@ -24,16 +24,24 @@ namespace WindowsFormsApplication1
             Query query = new Query(con);
 
 
-            try {
-                for (int i = 0; i < DisplayGrid.SelectedRows.Count; i++)
-                {
-                    query.Delete(TableComboBox.SelectedItem.ToString(), DisplayGrid.Columns[0].Name, DisplayGrid.SelectedRows[i].Cells[0].Value.ToString());
-                }
-                MessageBox.Show("record eliminati dal database con successo");
-            }
-            catch
+            if (DisplayGrid.SelectedRows.Count > 0)
             {
-                MessageBox.Show("Errore");
+                try
+                {
+                    for (int i = 0; i < DisplayGrid.SelectedRows.Count; i++)
+                    {
+                        query.Delete(TableComboBox.SelectedItem.ToString(), DisplayGrid.Columns[0].Name, DisplayGrid.SelectedRows[i].Cells[0].Value.ToString());
+                    }
+                    MessageBox.Show("record eliminati dal database con successo");
+                }
+                catch
+                {
+                    MessageBox.Show("Errore");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleziona le righe da eliminare");
             }
         }
     }
