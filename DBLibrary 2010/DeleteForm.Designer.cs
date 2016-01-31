@@ -29,26 +29,41 @@
         private void InitializeComponent()
         {
             this.DeleteBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // DeleteBtn
             // 
-            this.DeleteBtn.Location = new System.Drawing.Point(456, 204);
+            this.DeleteBtn.Location = new System.Drawing.Point(456, 217);
             this.DeleteBtn.Name = "DeleteBtn";
             this.DeleteBtn.Size = new System.Drawing.Size(127, 23);
             this.DeleteBtn.TabIndex = 7;
             this.DeleteBtn.Text = "Elimina";
             this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(456, 201);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(133, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Elimina le righe selezionate";
             // 
             // DeleteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 261);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.DeleteBtn);
             this.Name = "DeleteForm";
             this.Text = "DeleteForm";
+            this.Controls.SetChildIndex(this.ColumnsList, 0);
+            this.Controls.SetChildIndex(this.TableComboBox, 0);
             this.Controls.SetChildIndex(this.DeleteBtn, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -57,5 +72,6 @@
         #endregion
 
         private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.Label label1;
     }
 }

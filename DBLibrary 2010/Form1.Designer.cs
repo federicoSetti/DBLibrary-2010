@@ -103,10 +103,10 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView DisplayGrid;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckedListBox ColumnsList;
-        private System.Windows.Forms.ComboBox TableComboBox;
+        protected System.Windows.Forms.DataGridView DisplayGrid;
+        protected System.Windows.Forms.CheckedListBox ColumnsList;
+        protected System.Windows.Forms.ComboBox TableComboBox;
     }
 }
 

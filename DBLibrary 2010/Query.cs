@@ -66,9 +66,9 @@ namespace DBLibrary
             this.initializeQuery(this.cmd, "UPDATE students SET name = 'Elon' WHERE alias = 'elon-musk'; ");
           }
 
-          public void Delete()
+          public void Delete(string table,string recordname,string recordvalue)
           {
-            this.initializeQuery(this.cmd, "DELETE FROM  students  WHERE alias = 'elon-musk'; ");
+            this.initializeQuery(this.cmd, "DELETE FROM "+table+" WHERE "+recordname+"='"+recordvalue+"';");
           }
 
           public List<string> getColumnNames(string tablename)
