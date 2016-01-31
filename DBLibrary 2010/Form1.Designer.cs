@@ -38,9 +38,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(82, 234);
+            this.button1.Location = new System.Drawing.Point(456, 161);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(240, 23);
+            this.button1.Size = new System.Drawing.Size(127, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "Mostra";
             this.button1.UseVisualStyleBackColor = true;
@@ -51,13 +51,13 @@
             this.DisplayGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DisplayGrid.Location = new System.Drawing.Point(12, 12);
             this.DisplayGrid.Name = "DisplayGrid";
-            this.DisplayGrid.Size = new System.Drawing.Size(392, 216);
+            this.DisplayGrid.Size = new System.Drawing.Size(438, 216);
             this.DisplayGrid.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(420, 96);
+            this.label2.Location = new System.Drawing.Point(456, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 13);
             this.label2.TabIndex = 5;
@@ -66,7 +66,7 @@
             // ColumnsList
             // 
             this.ColumnsList.FormattingEnabled = true;
-            this.ColumnsList.Location = new System.Drawing.Point(423, 112);
+            this.ColumnsList.Location = new System.Drawing.Point(459, 52);
             this.ColumnsList.Name = "ColumnsList";
             this.ColumnsList.Size = new System.Drawing.Size(114, 94);
             this.ColumnsList.TabIndex = 4;
@@ -74,7 +74,7 @@
             // TableComboBox
             // 
             this.TableComboBox.FormattingEnabled = true;
-            this.TableComboBox.Location = new System.Drawing.Point(410, 72);
+            this.TableComboBox.Location = new System.Drawing.Point(456, 12);
             this.TableComboBox.Name = "TableComboBox";
             this.TableComboBox.Size = new System.Drawing.Size(127, 21);
             this.TableComboBox.TabIndex = 6;
@@ -86,7 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 269);
+            this.ClientSize = new System.Drawing.Size(630, 242);
             this.Controls.Add(this.TableComboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ColumnsList);

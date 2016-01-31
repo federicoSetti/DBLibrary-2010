@@ -28,11 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.DeleteBtn = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // DeleteBtn
+            // 
+            this.DeleteBtn.Location = new System.Drawing.Point(456, 204);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(127, 23);
+            this.DeleteBtn.TabIndex = 7;
+            this.DeleteBtn.Text = "Elimina";
+            this.DeleteBtn.UseVisualStyleBackColor = true;
+            // 
+            // DeleteForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(629, 261);
+            this.Controls.Add(this.DeleteBtn);
+            this.Name = "DeleteForm";
             this.Text = "DeleteForm";
+            this.Controls.SetChildIndex(this.DeleteBtn, 0);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button DeleteBtn;
     }
 }

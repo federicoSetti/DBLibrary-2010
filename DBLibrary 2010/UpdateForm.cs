@@ -10,7 +10,7 @@ using DBLibrary;
 
 namespace WindowsFormsApplication1
 {
-    public partial class UpdateForm : Form
+    public partial class UpdateForm : Form1
     {
         public UpdateForm()
         {

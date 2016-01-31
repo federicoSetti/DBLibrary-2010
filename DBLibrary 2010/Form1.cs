@@ -104,7 +104,7 @@ namespace DBLibrary
                 DisplayGrid.Columns[i].Name = ColumnsList.CheckedItems[i].ToString();
             }
 
-            for (int i = 0; i < list[0].Count+1; i++)
+            for (int i = 0; i < list[0].Count; i++)
             {
                 string[] col = new string[list[0].Count];
                     for (int j = 0; j < ColumnsList.CheckedItems.Count; j++)

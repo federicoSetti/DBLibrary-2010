@@ -6,10 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DBLibrary;
 
 namespace WindowsFormsApplication1
 {
-    public partial class DeleteForm : Form
+    public partial class DeleteForm : Form1
     {
         public DeleteForm()
         {
