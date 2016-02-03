@@ -40,9 +40,14 @@ namespace WindowsFormsApplication1
         {
             Query query = new Query(this.conn);
 
-            query.insertInto(TableComboBox.SelectedItem.ToString(), concatItems(), getNewValues());
-
-
+            try { 
+             query.insertInto(TableComboBox.SelectedItem.ToString(), concatItems(), getNewValues());
+               MessageBox.Show("Record aggiunto al database con successo");
+            }
+            catch
+            {
+              MessageBox.Show("errore,probabilmente non hai aggiunto l'alias");
+            }
 
         }
         
