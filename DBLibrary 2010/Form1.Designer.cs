@@ -59,9 +59,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(456, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Seleziona Colonne";
+            this.label2.Text = "Filtra Colonne";
             // 
             // ColumnsList
             // 

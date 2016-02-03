@@ -36,7 +36,6 @@ namespace DBLibrary
         
                 List<List<string>> lista = new List<List<string>>();
                     
-
                 for (int i = 0; i <checkeditems.Count; i++)
                 {
                    lista.Add(new List<string>());
@@ -62,16 +61,17 @@ namespace DBLibrary
               this.initializeQuery(this.cmd, "INSERT INTO "+table+"("+columns+") VALUES("+values+")");
           }
               
-          public void Update()
+          public void Update(string table,string values,string alias)
           {
-            this.initializeQuery(this.cmd, "UPDATE students SET name = 'Elon' WHERE alias = 'elon-musk'; ");
+            this.initializeQuery(this.cmd, "UPDATE " +table+ " SET "+values +" WHERE alias = '"+alias+"'; ");
           }
 
           public void Delete(string table,string recordname,string recordvalue)
           {
             this.initializeQuery(this.cmd, "DELETE FROM "+table+" WHERE "+recordname+"='"+recordvalue+"';");
           }
-
+           
+          //ritorna i nomi delle colonne di una determinata tabella
           public List<string> getColumnNames(string tablename)
         {
             this.initializeQuery(this.cmd, " SHOW COLUMNS FROM "+tablename +";"); 
@@ -88,7 +88,8 @@ namespace DBLibrary
             return lista;
 
         }
-
+          
+         //ritorna i nomi delle tabelle del database
           public List<string> getTableNames()
             {
                 this.initializeQuery(this.cmd, "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA = 'sql2105240';");
@@ -105,7 +106,10 @@ namespace DBLibrary
                 return lista;
 
             }
+          
     }
+
+
 
    
     }

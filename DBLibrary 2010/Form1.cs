@@ -22,7 +22,7 @@ namespace DBLibrary
             FillTableComboBox();
         }
 
-         private  void button1_Click(object sender, EventArgs e)
+       virtual protected void button1_Click(object sender, EventArgs e)
         {
 
            DisplayGrid.Columns.Clear();
@@ -39,11 +39,11 @@ namespace DBLibrary
         }
         
         //riempie la combobox coi nomi delle tabelle del database
-        public void FillTableComboBox()
+        protected virtual void FillTableComboBox()
         {
             Query qu = new Query(con);
             List<string> Tables = qu.getTableNames();
-
+            //aggiunge gli elementi alla combobox
             for (int i = 0; i < Tables.Count; i++)
             {
                 TableComboBox.Items.Add(Tables[i]);
@@ -54,12 +54,14 @@ namespace DBLibrary
        virtual protected void TableComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ColumnsList.Items.Clear();
+            
 
             Query qu = new Query(con);
             int index = TableComboBox.SelectedIndex;
             List<string> Columns = qu.getColumnNames(TableComboBox.Items[index].ToString());
 
-            for (int i = 0; i < Columns.Count; i++)
+            //aggiunge le colonne alla checkedlistbox
+            for (int i = 1; i < Columns.Count; i++)
             {
                 ColumnsList.Items.Add(Columns[i]);
             }
@@ -68,7 +70,7 @@ namespace DBLibrary
         //converte la lista degli elementi selezionati in una stringa leggibile dalla query
         protected virtual string concatCheckedItems()
         {
-            string values = "";
+            string values = "alias,";
 
             for (int i = 0; i < ColumnsList.CheckedItems.Count; i++)
             {
@@ -77,38 +79,39 @@ namespace DBLibrary
 
                 values +=ColumnsList.CheckedItems[i].ToString()+ comma;
             }
-
            return values;
         }
 
         //converte la lista degli elementi selezionati in una lista di stringhe
-        private List<string> getCheckedItems()
+        protected virtual List<string> getCheckedItems()
         {
             List<string> lista = new List<string>();
 
+            lista.Add("alias");
             for (int i = 0; i < ColumnsList.CheckedItems.Count; i++)
             {
-
                 lista.Add(ColumnsList.CheckedItems[i].ToString());
             }
             return lista;
         }
 
         //fa displaiare i risultati nella datagridview
-        private void FillDataGridView(List<List<string>> list)
+        protected void FillDataGridView(List<List<string>> list)
         {
 
             DisplayGrid.ColumnCount = list.Count;
 
-            for (int i = 0; i < ColumnsList.CheckedItems.Count; i++)
+            List<string> columns = getCheckedItems();
+            //scrive i nomi delle colonne
+            for (int i = 0; i < columns.Count; i++)
             {
-                DisplayGrid.Columns[i].Name = ColumnsList.CheckedItems[i].ToString();
+                DisplayGrid.Columns[i].Name = columns[i].ToString();
             }
 
             for (int i = 0; i < list[0].Count; i++)
             {
                 string[] col = new string[list[0].Count+3];
-                    for (int j = 0; j < ColumnsList.CheckedItems.Count; j++)
+                    for (int j = 0; j < columns.Count; j++)
                     {
                         col[j] = list[j][i];
                     }

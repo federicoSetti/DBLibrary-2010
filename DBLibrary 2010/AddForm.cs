@@ -21,10 +21,10 @@ namespace WindowsFormsApplication1
             InitializeComponent();
          
         }
-
+        //concatena i nomi delle colonne in una stringa
         private string concatItems()
         {
-            string values = "";
+            string values = "alias,";
 
             for (int i = 0; i < ColumnsList.Items.Count; i++)
             {
@@ -40,33 +40,28 @@ namespace WindowsFormsApplication1
         {
             Query query = new Query(this.conn);
 
-            try {
-                query.insertInto(TableComboBox.SelectedItem.ToString(), concatItems(), getNewValues());
-                MessageBox.Show("Elemento aggiunto al database con successo");
-            }
-            catch
-            {
-                MessageBox.Show("Errore,probabilmente non ha riempito tutti i campi");
-            }
-        
+            query.insertInto(TableComboBox.SelectedItem.ToString(), concatItems(), getNewValues());
+
 
 
         }
-
+        
         protected override void TableComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {   
+            
             base.TableComboBox_SelectedIndexChanged(sender, e);
             InitializeDatagrid();
         }
 
+        //concatena i valori delle colonne in una stringa
         private string getNewValues()
         {
             string values = "";
 
-            for (int i = 0; i <ColumnsList.Items.Count ; i++)
+            for (int i = 0; i <ColumnsList.Items.Count+1 ; i++)
             {
                 string comma = "";
-                if (i !=  ColumnsList.Items.Count - 1) { comma = ","; }
+                if (i !=  ColumnsList.Items.Count) { comma = ","; }
 
                 values += "'"+newValuesGrid.Rows[0].Cells[i].Value+"'" + comma;
             }
@@ -79,6 +74,7 @@ namespace WindowsFormsApplication1
         
         }
 
+        //scrive i nomi delle colonne nella datagrid
         private void InitializeDatagrid()
         {
             Query query = new Query(this.conn);
