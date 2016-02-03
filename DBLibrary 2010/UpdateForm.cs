@@ -26,10 +26,10 @@ namespace WindowsFormsApplication1
                 Query query = new Query(con);
                
                 try
-                {
+                {   
                     for (int i = 0; i < DisplayGrid.SelectedRows.Count; i++)
                     {
-                        query.Update(TableComboBox.SelectedItem.ToString(), concatItems(), DisplayGrid.SelectedRows[0].Cells[0].Value.ToString());
+                        query.Update(TableComboBox.SelectedItem.ToString(), concatItems(i), DisplayGrid.SelectedRows[i].Cells[0].Value.ToString());
                     }
                     MessageBox.Show("record aggiornati  con successo");
                 }
@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private string concatItems()
+        private string concatItems(int j)
         {
             string value = "";
 
@@ -52,7 +52,7 @@ namespace WindowsFormsApplication1
             {
                 string comma = "";
                 if (i != getCheckedItems().Count - 1) { comma = ","; }
-                value += DisplayGrid.Columns[i].Name + "='"+DisplayGrid.SelectedRows[0].Cells[i].Value.ToString()+"'"+comma;
+                value += DisplayGrid.Columns[i].Name + "='"+DisplayGrid.SelectedRows[j].Cells[i].Value.ToString()+"'"+comma;
             }
             return value;
         }
