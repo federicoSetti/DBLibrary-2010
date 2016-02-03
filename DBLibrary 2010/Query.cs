@@ -15,15 +15,16 @@ namespace DBLibrary
          public Query( ConnectionHandler con)
         {
             this.con = con;
-            this.con.openConnection();
 
+            this.con.openConnection(this.con.fallbackconnection);
             this.cmd = new MySqlCommand();
         }
 
           //creo la procedura getStudents 
           public void initializeQuery(MySqlCommand cmd,string request)
-        {   
-            cmd.Connection = this.con.connection;
+        {
+            this.con.openConnection(this.con.fallbackconnection);
+            cmd.Connection = this.con.fallbackconnection;
             cmd.CommandText = request;
             cmd.ExecuteNonQuery();
         }
@@ -90,7 +91,7 @@ namespace DBLibrary
 
           public List<string> getTableNames()
             {
-                this.initializeQuery(this.cmd, "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA = 'dbannuario';");
+                this.initializeQuery(this.cmd, "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA = 'sql2105240';");
 
                 List<string> lista = new List<string>();
 

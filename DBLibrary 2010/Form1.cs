@@ -14,9 +14,10 @@ namespace DBLibrary
     public partial class Form1 : Form
     {
         ConnectionHandler con = new ConnectionHandler();
+       
 
         public Form1()
-        {
+        { 
             InitializeComponent();
             FillTableComboBox();
         }
@@ -106,7 +107,7 @@ namespace DBLibrary
 
             for (int i = 0; i < list[0].Count; i++)
             {
-                string[] col = new string[list[0].Count+1];
+                string[] col = new string[list[0].Count+3];
                     for (int j = 0; j < ColumnsList.CheckedItems.Count; j++)
                     {
                         col[j] = list[j][i];
