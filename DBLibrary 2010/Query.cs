@@ -61,9 +61,9 @@ namespace DBLibrary
               this.initializeQuery(this.cmd, "INSERT INTO "+table+"("+columns+") VALUES("+values+")");
           }
               
-          public void Update(string table,string values,string alias)
+          public void Update(string table,string values,string primarikeyname,string primarykeyvalue)
           {
-            this.initializeQuery(this.cmd, "UPDATE " +table+ " SET "+values +" WHERE alias = '"+alias+"'; ");
+            this.initializeQuery(this.cmd, "UPDATE " +table+ " SET "+values +" WHERE "+primarikeyname +" = '"+primarykeyvalue+"'; ");
           }
 
           public void Delete(string table,string recordname,string recordvalue)

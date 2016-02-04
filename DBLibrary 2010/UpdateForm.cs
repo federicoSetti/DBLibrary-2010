@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
                 {   
                     for (int i = 0; i < DisplayGrid.SelectedRows.Count; i++)
                     {
-                        query.Update(TableComboBox.SelectedItem.ToString(), concatItems(i), DisplayGrid.SelectedRows[i].Cells[0].Value.ToString());
+                        query.Update(TableComboBox.SelectedItem.ToString(), concatItems(i), DisplayGrid.Columns[0].Name,DisplayGrid.SelectedRows[i].Cells[0].Value.ToString());
                     }
                     MessageBox.Show("record aggiornati  con successo");
                 }

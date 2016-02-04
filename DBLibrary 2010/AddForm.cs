@@ -24,7 +24,9 @@ namespace WindowsFormsApplication1
         //concatena i nomi delle colonne in una stringa
         private string concatItems()
         {
-            string values = "alias,";
+            Query query = new Query(this.conn);
+
+            string values = query.getColumnNames(TableComboBox.SelectedItem.ToString())[0] + ",";
 
             for (int i = 0; i < ColumnsList.Items.Count; i++)
             {

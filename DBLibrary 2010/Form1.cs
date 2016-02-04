@@ -70,7 +70,9 @@ namespace DBLibrary
         //converte la lista degli elementi selezionati in una stringa leggibile dalla query
         protected virtual string concatCheckedItems()
         {
-            string values = "alias,";
+
+            Query query = new Query(this.con);
+            string values = query.getColumnNames(TableComboBox.SelectedItem.ToString())[0]+",";
 
             for (int i = 0; i < ColumnsList.CheckedItems.Count; i++)
             {
@@ -87,7 +89,9 @@ namespace DBLibrary
         {
             List<string> lista = new List<string>();
 
-            lista.Add("alias");
+            Query query = new Query(this.con);
+
+            lista.Add(query.getColumnNames(TableComboBox.SelectedItem.ToString())[0]);
             for (int i = 0; i < ColumnsList.CheckedItems.Count; i++)
             {
                 lista.Add(ColumnsList.CheckedItems[i].ToString());
@@ -110,7 +114,7 @@ namespace DBLibrary
 
             for (int i = 0; i < list[0].Count; i++)
             {
-                string[] col = new string[list[0].Count+3];
+                string[] col = new string[list[0].Count+4];
                     for (int j = 0; j < columns.Count; j++)
                     {
                         col[j] = list[j][i];
