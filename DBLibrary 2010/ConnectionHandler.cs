@@ -5,33 +5,37 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace DBLibrary
 {
     class ConnectionHandler
     {
         //creo delle costanti di stringhe con tutte le credenzili che sevono per accedere al DB
-        const string server = "db4free.net";
-        const string port = "3306";
-        const string user = "admininfo";
-        const string pass = "informatica321";
-        const string dbName = "dbannuario";
+        public const string server = "db4free.net";
+        public const string port = "3306";
+        public const string user = "admininfo";
+        public const string pass = "informatica321";
+        public const string dbName = "dbannuario";
 
-        const string fallbackserver = "sql2.freemysqlhosting.net";
-        const string fallbackport = "3306";
-        const string fallbackuser = "sql2105240";
-        const string fallbackpass = "jA9*tE1%";
-        const string fallbackdbName = "sql2105240";
+        public const string fallbackserver = "sql2.freemysqlhosting.net";
+        public const string fallbackport = "3306";
+        public const string fallbackuser = "sql2105240";
+        public const string fallbackpass = "jA9*tE1%";
+        public const string fallbackdbName = "sql2105240";
+
+        public string Database = "";
 
         public MySqlConnection connection;
         public MySqlConnection fallbackconnection;
+        public MySqlConnection currentconnection;
 
         public ConnectionHandler()
         {
-            // creo un nuovo MySqlConnection (nello stesso modo di una lista) e come argomento gli inserisco una concatenazione di stringhe con le credenziali precedenti
+          //creo un nuovo MySqlConnection (nello stesso modo di una lista) e come argomento gli inserisco una concatenazione di stringhe con le credenziali precedenti
           this.connection = new MySqlConnection("Server=" + server + ";Port=" + port + ";Database=" + dbName + ";Uid=" + user + ";Pwd=" + pass + ";");
           this.fallbackconnection = new MySqlConnection("Server=" + fallbackserver + ";Port=" + fallbackport + ";Database=" + fallbackdbName + ";Uid=" + fallbackuser + ";Pwd=" + fallbackpass + ";");
-          //this.openConnection(this.fallbackconnection);
+          this.HandleFallback();
         }
 
         public bool openConnection(MySqlConnection connect)
@@ -52,15 +56,14 @@ namespace DBLibrary
 
             if(this.openConnection(this.connection))
             {
-                MessageBox.Show("Connessione riuscita al database principale");
+                this.currentconnection = this.connection;
             }
             else if(this.openConnection(this.fallbackconnection) )
             {
-                MessageBox.Show("Connessione riuscita al database di emergenza");
+                this.currentconnection = this.fallbackconnection;
             }
             else
             {
-                MessageBox.Show("Connessione non riuscita a nessun dabatabase");
             }
         } 
         
