@@ -92,7 +92,7 @@ namespace DBLibrary
          //ritorna i nomi delle tabelle del database
           public List<string> getTableNames()
             {
-                this.initializeQuery(this.cmd, "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA = 'dbannuario';");
+            this.initializeQuery(this.cmd, "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA = '" + this.con.Database + "'");
 
                 List<string> lista = new List<string>();
 

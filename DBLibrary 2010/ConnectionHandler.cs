@@ -36,6 +36,7 @@ namespace DBLibrary
           this.connection = new MySqlConnection("Server=" + server + ";Port=" + port + ";Database=" + dbName + ";Uid=" + user + ";Pwd=" + pass + ";");
           this.fallbackconnection = new MySqlConnection("Server=" + fallbackserver + ";Port=" + fallbackport + ";Database=" + fallbackdbName + ";Uid=" + fallbackuser + ";Pwd=" + fallbackpass + ";");
           this.HandleFallback();
+           
         }
 
         public bool openConnection(MySqlConnection connect)
@@ -57,10 +58,12 @@ namespace DBLibrary
             if(this.openConnection(this.connection))
             {
                 this.currentconnection = this.connection;
+                this.Database = "dbannuario";
             }
             else if(this.openConnection(this.fallbackconnection) )
             {
                 this.currentconnection = this.fallbackconnection;
+                this.Database = "sql2105240";
             }
             else
             {

@@ -117,6 +117,8 @@ namespace DBLibrary
                     }
                 DisplayGrid.Rows.Add(col);
             }
+
+            DisplayGrid.Columns[0].ReadOnly = true;
         } 
 
     }
