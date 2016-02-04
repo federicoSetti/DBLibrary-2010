@@ -11,7 +11,7 @@ namespace DBLibrary
     class ConnectionHandler
     {
 
-        public string Database = "";
+        public string Database = ""; //nome del database attualmente in uso
 
         public MySqlConnection connection; //connessione al database principale
         public MySqlConnection fallbackconnection; //connessione al database di riserva

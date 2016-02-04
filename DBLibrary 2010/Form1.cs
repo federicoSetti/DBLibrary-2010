@@ -35,7 +35,7 @@ namespace DBLibrary
                 List<List<string>> lis = quer.Select(TableComboBox.SelectedItem.ToString(), concatCheckedItems(), getCheckedItems());
                 FillDataGridView(lis);
             }
-            else { MessageBox.Show("Seleziona degli elementi stronzo"); }
+            else { MessageBox.Show("Seleziona degli elementi"); }
         }
         
         //riempie la combobox coi nomi delle tabelle del database
